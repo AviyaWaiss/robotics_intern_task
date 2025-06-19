@@ -12,7 +12,7 @@ The original task description is included in the accompanying PDF assignment.
 *RViz snapshot:*   
 *• Gray arc — simulated LiDAR obstacle points projected into the occupancy grid*  
 *• White background — free ground cells projected from RGB-D and DeepLabV3 mask*  
-*• Faint vertical lines — expected artifacts from sparse segmentation after mask downsampling*
+*• Black vertical lines — expected artifacts from sparse segmentation after mask downsampling*
 
 
 
