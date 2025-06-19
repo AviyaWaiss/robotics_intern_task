@@ -7,7 +7,7 @@ The original task description is included in the accompanying PDF assignment.
 
 <div align="center">
 
-![Occupancy-grid demo](rviz_grid_demo.png)
+![Occupancy-grid demo](assets/rviz_grid_demo.png)
 
 *RViz snapshot:*   
 *• Gray arc — simulated LiDAR obstacle points projected into the occupancy grid*  
@@ -22,6 +22,7 @@ The original task description is included in the accompanying PDF assignment.
 
 ## Repository Layout
 
+```
 robotics_intern/
 ├── src/
 │ └── sensors_fusion_pkg/
@@ -31,6 +32,7 @@ robotics_intern/
 │ └── package.xml
 ├── .gitignore
 └── README.md 
+```
 
 ---
 

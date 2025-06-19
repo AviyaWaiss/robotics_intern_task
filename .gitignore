@@ -7,7 +7,6 @@ log/
 .vscode/
 .idea/
 *.code-workspace
-rviz_grid_demo.png
 
 # Python
 __pycache__/
