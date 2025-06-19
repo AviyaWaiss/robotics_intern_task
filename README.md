@@ -24,14 +24,16 @@ The original task description is included in the accompanying PDF assignment.
 
 ```
 robotics_intern/
-├── src/
-│ └── sensors_fusion_pkg/
-│ ├── sensors_fusion.py # Fusion + mapping node (main task answer)
-│ ├── fake_sensors.py # Publishes mock LiDAR + RGB-D data
-│ ├── init.py
+├── assets/
+│ └── rviz_grid_demo.png
+├── src/sensors_fusion_pkg/
+│ ├── sensors_fusion_pkg/
+│ │ ├── init.py
+│ │ ├── fake_sensors.py
+│ │ └── sensors_fusion.py
 │ └── package.xml
 ├── .gitignore
-└── README.md 
+└── README.md
 ```
 
 ---
