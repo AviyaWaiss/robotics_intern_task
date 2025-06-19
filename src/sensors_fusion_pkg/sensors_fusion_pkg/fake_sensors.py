@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-import rclpy, numpy as np, cv2
+import rclpy
+import numpy as np
+import cv2
 from rclpy.node import Node
 from sensor_msgs.msg import PointCloud2, PointField, Image
 from std_msgs.msg import Header
-from builtin_interfaces.msg import Time
 
 WIDTH, HEIGHT = 640, 480
 LIDAR_PTS = 2048
@@ -24,7 +25,8 @@ def make_point_cloud(n):
     a = np.linspace(-np.pi/4, np.pi/4, n)
     xs = np.cos(a) * 2.0
     ys = np.sin(a) * 2.0
-    zs = np.random.uniform(-0.2, 0.2, n)
+    # zs = np.random.uniform(-0.2, 0.2, n)
+    zs = np.random.uniform(0.4, 0.6, n)
     return np.vstack((xs, ys, zs)).T.astype(np.float32)
 
 # ---------- Node Class ----------

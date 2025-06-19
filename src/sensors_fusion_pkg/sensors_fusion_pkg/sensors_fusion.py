@@ -13,7 +13,7 @@ class FuseMap(Node):
         self.create_subscription(Image, "/camera/color/image_raw", self.rgb_cb, 10)
         self.create_subscription(Image, "/camera/depth/image_rect_raw", self.depth_cb, 10)
         self.pub = self.create_publisher(OccupancyGrid, "/world_grid", 1)
-        self.grid = np.full((SZ, SZ), -1, np.int8)    # numpy buffer (not a ROS msg!)
+        self.grid = np.full((SZ, SZ), -1, np.int8) # numpy buffer (not a ROS msg!)
         self.pts = self.mask = self.depth = None
         self.net = torch.hub.load("pytorch/vision", "deeplabv3_resnet50", weights="DeepLabV3_ResNet50_Weights.DEFAULT").to(DEVICE).eval()
         self.create_timer(0.15, self.tick) # ~6.7 Hz
@@ -30,11 +30,11 @@ class FuseMap(Node):
         self.depth = rnp.numpify(msg).astype(np.float32)  # convert depth to float32 in meters
 
     def tick(self):
-        if self.pts is None or self.mask is None or self.depth is None: return                                # wait until all three arrive
-        self.grid.fill(-1)  # Reset grid
-        ground = self.pts[(self.pts[:, 2] > -1) & (self.pts[:, 2] < 0.5)] # filter near-ground points
-        cols = (ground[:, 0] / RES + SZ // 2).astype(int) # X to column
-        rows = (ground[:, 1] / RES + SZ // 2).astype(int) # Y to row
+        if self.pts is None or self.mask is None or self.depth is None: return # wait until all three arrive
+        self.grid.fill(-1) # Reset grid
+        obstacles = self.pts[self.pts[:, 2] > 0.3] # only points above 30 cm are obstacles
+        cols = (obstacles[:, 0] / RES + SZ // 2).astype(int) # X to column
+        rows = (obstacles[:, 1] / RES + SZ // 2).astype(int) # Y to row
         inside = (rows >= 0) & (rows < SZ) & (cols >= 0) & (cols < SZ)
         self.grid[rows[inside], cols[inside]] = 100 # mark occupied cells
         mask_r, mask_c = np.where(self.mask[::8, ::8]) # downsample mask

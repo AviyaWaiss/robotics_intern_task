@@ -7,16 +7,12 @@ log/
 .vscode/
 .idea/
 *.code-workspace
+rviz_grid_demo.png
 
 # Python
 __pycache__/
 *.pyc
 *.pyo
-
-# Test outputs
-test/
-tests/
-*.test
 
 # Resource/setup artifacts (if generated)
 resource/

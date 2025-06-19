@@ -1,11 +1,10 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>awareness_pkg</name>
+  <name>sensors_fusion_pkg</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>End-to-end demo that fuses a **128-beam LiDAR** and an **Intel RealSense RGB-D** camera to create a 2-D occupancy grid in real time. The grid marks **free ground**, **obstacles** (people, rocks, debris), and **unknown** cells, updating at **≥ 6 Hz** on a Jetson Orin NX. Mock sensors data included.</description>
   <maintainer email="aviyaw50@gmail.com">aviyaw</maintainer>
-  <license>TODO: License declaration</license>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
