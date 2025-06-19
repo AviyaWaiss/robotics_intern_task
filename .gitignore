@@ -1,0 +1,30 @@
+# ROS 2 build system folders
+build/
+install/
+log/
+
+# Local development
+.vscode/
+.idea/
+*.code-workspace
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Test outputs
+test/
+tests/
+*.test
+
+# Resource/setup artifacts (if generated)
+resource/
+setup.cfg
+setup.py
+setup.*
+*.egg-info/
+
+# Misc
+.DS_Store
+Thumbs.db
